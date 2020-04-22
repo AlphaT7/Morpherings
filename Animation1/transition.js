@@ -26,12 +26,19 @@ function submitForm() {
    emailbox.placeholder = "";
    emailbox.value = "";
 
+   var loadingCircles = document.getElementById("loadingCircles");
+   setTimeout(function() {
+      loadingCircles.style.display = "block"
+   }, 620)
+
    setTimeout(function() {
       emailbox.value = "Register";
 
       var registerForm = document.getElementById("registerForm");
-      registerForm.innerHTML = "Account created. Check your email."
+      registerForm.innerHTML = "<img class='check' src='check.svg' /><br /><p id='resultText' class='resultText'>Account created. Check your email.</p>"
       registerForm.setAttribute("aria-live", "assertive");
       registerForm.fontAlign = "center";
-   }, 1525)
+
+      document.getElementById("resultText").className += " showText";
+   }, 2620);
 }
